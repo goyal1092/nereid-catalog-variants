@@ -44,13 +44,6 @@ class TestProduct(NereidTestCase):
         party2, = self.Party.create([{
             'name': 'Guest User',
         }])
-        guest_user, = self.NereidUser.create([{
-            'party': party2.id,
-            'display_name': 'Guest User',
-            'email': 'guest@openlabs.co.in',
-            'password': 'password',
-            'company': company.id,
-        }])
         party3, = self.Party.create([{
             'name': 'Registered User',
         }])
@@ -82,8 +75,6 @@ class TestProduct(NereidTestCase):
             'company': company.id,
             'application_user': USER,
             'default_locale': self.locale_en_us.id,
-            'guest_user': guest_user,
-            'categories': [('add', [self.category.id])],
             'currencies': [('add', [usd.id])],
         }])
 
